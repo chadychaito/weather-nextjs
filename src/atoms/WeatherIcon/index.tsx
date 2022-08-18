@@ -1,10 +1,20 @@
 import Image from "next/image";
 
 interface IProps {
-  type: "a" | "b" | "c" | "d" | "e";
+  type:
+    | "clear"
+    | "clouds"
+    | "light_rain"
+    | "mist"
+    | "rain"
+    | "snow"
+    | "thunderstorm";
 }
-//TODO: Refactor types when decide
-
 export const WeatherIcon = ({ type }: IProps) => (
-  <Image src="/cludy.png" alt="weather icon" width={150} height={150} />
+  <Image
+    src={`/icons/${type}.svg`}
+    width={180}
+    height={180}
+    alt="weather icon"
+  />
 );

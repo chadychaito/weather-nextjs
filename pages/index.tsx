@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Container } from "../src/atoms/Container";
 import { Title } from "../src/molecules/Title";
 import { WeatherInfo } from "../src/molecules/WeatherInfo";
 
@@ -20,8 +21,10 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <Title />
-      <WeatherInfo />
+      <Container>
+        <Title />
+        <WeatherInfo />
+      </Container>
     </div>
   );
 };

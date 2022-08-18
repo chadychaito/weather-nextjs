@@ -10,14 +10,15 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h1`
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 3rem;
+  line-height: 3rem;
   color: #313341;
   margin: 0;
 `;
 
 export const Subtitle = styled.h2`
   font-weight: 400;
-  font-size: 0.5625rem;
+  font-size: 1.5rem;
   color: #9a938c;
   margin: 0;
 `;

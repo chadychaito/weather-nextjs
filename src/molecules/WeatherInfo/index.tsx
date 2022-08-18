@@ -5,7 +5,7 @@ import * as S from "./styles";
 
 export const WeatherInfo = () => (
   <S.Wrapper>
-    <WeatherIcon type="a" />
+    <WeatherIcon type="clouds" />
     <WeatherCondition />
   </S.Wrapper>
 );
