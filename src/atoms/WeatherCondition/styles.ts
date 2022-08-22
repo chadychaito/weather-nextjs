@@ -12,6 +12,7 @@ export const DegreeGroup = styled.div`
 
 export const Deegree = styled.h3`
   font-size: 5rem;
+  line-height: 4.5rem;
   font-weight: 700;
   color: #303345;
   margin: 0;
