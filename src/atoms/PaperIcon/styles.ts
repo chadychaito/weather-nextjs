@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { IconType } from "../PaperIcon";
 
+type WrapperType = {
+  icon: IconType;
+};
+
 const getColorFromIcon = (icon: IconType): string => {
   const colorFromIcon = {
     umbrela: "#1E9B26",
@@ -9,10 +13,6 @@ const getColorFromIcon = (icon: IconType): string => {
   };
 
   return colorFromIcon[icon];
-};
-
-type WrapperType = {
-  icon: IconType;
 };
 
 export const Wrapper = styled.div<WrapperType>`

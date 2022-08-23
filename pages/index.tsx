@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Container } from "../src/atoms/Container";
 import { Title } from "../src/molecules/Title";
 import { WeatherInfo } from "../src/molecules/WeatherInfo";
+import { TodayWeather } from "../src/organisms/TodayWeather";
 import { WeatherDetailsList } from "../src/organisms/WeatherDetailsList";
 
 const Home: NextPage = () => {
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
         <Title />
         <WeatherInfo />
         <WeatherDetailsList />
+        <TodayWeather />
       </Container>
     </div>
   );
