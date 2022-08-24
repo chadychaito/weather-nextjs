@@ -32,3 +32,12 @@ export const TabItem = styled.div<ActiveType>`
     background:  #313341;
   `}
 `;
+
+export const CustomTabItem = styled(TabItem)`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  :hover {
+    cursor: pointer;
+  }
+`;
