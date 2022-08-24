@@ -9,12 +9,14 @@ interface IProps {
     | "rain"
     | "snow"
     | "thunderstorm";
+  width?: number;
+  height?: number;
 }
-export const WeatherIcon = ({ type }: IProps) => (
+export const WeatherIcon = ({ type, width = 180, height = 180 }: IProps) => (
   <Image
     src={`/icons/${type}.svg`}
-    width={180}
-    height={180}
+    width={width}
+    height={height}
     alt="weather icon"
   />
 );
