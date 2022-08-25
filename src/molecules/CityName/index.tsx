@@ -1,9 +1,13 @@
 import * as S from "./styles";
 
-export const Title: React.FC = () => (
+interface IProps {
+  name?: string;
+}
+
+export const CityName: React.FC<IProps> = ({ name = "" }) => (
   <S.Wrapper>
     <S.Title>
-      Stockholm, <br />
+      {name}, <br />
       Sweden
     </S.Title>
     <S.Subtitle>Tue, Jun 30</S.Subtitle>

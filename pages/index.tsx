@@ -1,11 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Container } from "../src/atoms/Container";
-import { Title } from "../src/molecules/Title";
-import { WeatherInfo } from "../src/molecules/WeatherInfo";
-import { TodayWeather } from "../src/organisms/TodayWeather";
-import { WeatherDetailsList } from "../src/organisms/WeatherDetailsList";
+import { HomeTemplate } from "../src/templates/Home";
 
 const Home: NextPage = () => {
   return (
@@ -23,12 +19,7 @@ const Home: NextPage = () => {
           rel="stylesheet"
         />
       </Head>
-      <Container>
-        <Title />
-        <WeatherInfo />
-        <WeatherDetailsList />
-        <TodayWeather />
-      </Container>
+      <HomeTemplate />
     </div>
   );
 };

@@ -38,6 +38,7 @@ export const CustomTabItem = styled(TabItem)`
   align-items: center;
   gap: 0.5rem;
   :hover {
+    color: #313341;
     cursor: pointer;
   }
 `;
