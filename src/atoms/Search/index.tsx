@@ -6,6 +6,7 @@ import { DebouncedFunc } from "lodash";
 interface IProps {
   type?: string;
   placeholder?: string;
+  isLoading?: boolean;
   onChange: DebouncedFunc<
     (event: ChangeEvent<HTMLInputElement>) => Promise<any>
   >;
@@ -14,13 +15,14 @@ interface IProps {
 export const Search: React.FC<IProps> = ({
   type = "text",
   placeholder = "",
+  isLoading = true,
   onChange,
 }) => {
   return (
     <>
       <S.InputWrapper>
         <S.Input type={type} placeholder={placeholder} onChange={onChange} />
-        <FiSearch />
+        {isLoading ? <S.Loader /> : <FiSearch />}
       </S.InputWrapper>
     </>
   );

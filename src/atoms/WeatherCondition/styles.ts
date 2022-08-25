@@ -20,7 +20,7 @@ export const Deegree = styled.h3`
 
 export const WeatherName = styled.p`
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #303345;
 `;
