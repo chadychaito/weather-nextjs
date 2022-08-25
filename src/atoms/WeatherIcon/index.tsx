@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface IProps {
-  type:
+  type?:
     | "clear"
     | "clouds"
     | "light_rain"
@@ -12,7 +12,11 @@ interface IProps {
   width?: number;
   height?: number;
 }
-export const WeatherIcon = ({ type, width = 180, height = 180 }: IProps) => (
+export const WeatherIcon = ({
+  type = "clear",
+  width = 180,
+  height = 180,
+}: IProps) => (
   <Image
     src={`/icons/${type}.svg`}
     width={width}

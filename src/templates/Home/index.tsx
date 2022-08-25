@@ -79,6 +79,11 @@ export const HomeTemplate = () => {
     };
   });
 
+  const getCurrentDate = () => {
+    const _date = new Date();
+    return _date.toLocaleDateString("pt-BR");
+  };
+
   return (
     <Container>
       <Search
@@ -90,7 +95,7 @@ export const HomeTemplate = () => {
       {currentCity && (
         <>
           <CityInfo city={currentCity.city} />
-          <WeatherInfo temperature={19} descriptionWeather="Nuvens" />
+          <WeatherInfo todayWeather={currentCity.list[getCurrentDate()][0]} />
           <WeatherDetailsList />
           <TodayWeather />
         </>
