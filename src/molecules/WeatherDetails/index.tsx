@@ -25,6 +25,6 @@ export const WeatherDetails = ({ title, value }: IProps) => (
       <PaperIcon icon={getIconByTitle(title)} />
       <S.Text>{title}</S.Text>
     </S.TitleGroup>
-    <S.Text>{value}</S.Text>
+    <S.CustomText>{value}</S.CustomText>
   </S.Wrapper>
 );

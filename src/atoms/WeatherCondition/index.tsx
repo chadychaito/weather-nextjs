@@ -12,8 +12,8 @@ export const WeatherCondition: React.FC<IProps> = ({
   <S.DegreeWrapper>
     <S.DegreeGroup>
       <S.Deegree>{temperature}</S.Deegree>
-      <S.WeatherName>{descriptionWeather}</S.WeatherName>
+      <S.Metric>ºC</S.Metric>
     </S.DegreeGroup>
-    <S.Metric>ºC</S.Metric>
+    <S.WeatherName>{descriptionWeather}</S.WeatherName>
   </S.DegreeWrapper>
 );

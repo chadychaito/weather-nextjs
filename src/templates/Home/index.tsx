@@ -95,7 +95,9 @@ export const HomeTemplate = () => {
         <>
           <CityInfo city={currentCity.city} />
           <WeatherInfo todayWeather={currentCity.list[getCurrentDate()][0]} />
-          <WeatherDetailsList />
+          <WeatherDetailsList
+            todayWeather={currentCity.list[getCurrentDate()][0]}
+          />
           <TodayWeather />
         </>
       )}
