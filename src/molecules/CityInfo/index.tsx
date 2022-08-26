@@ -7,12 +7,23 @@ interface IProps {
   };
 }
 
-export const CityInfo: React.FC<IProps> = ({ city }) => (
-  <S.Wrapper>
-    <S.Title>
-      {city.name}, <br />
-      {city.country}
-    </S.Title>
-    <S.Subtitle>Tue, Jun 30</S.Subtitle>
-  </S.Wrapper>
-);
+export const CityInfo: React.FC<IProps> = ({ city }) => {
+  var options = {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  };
+
+  const _date = new Date();
+  const currentDate = _date.toLocaleDateString("pt-BR", options);
+
+  return (
+    <S.Wrapper>
+      <S.Title>
+        {city.name}, <br />
+        {city.country}
+      </S.Title>
+      <S.Subtitle>{currentDate}</S.Subtitle>
+    </S.Wrapper>
+  );
+};
