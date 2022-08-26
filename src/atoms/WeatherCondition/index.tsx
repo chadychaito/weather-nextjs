@@ -1,10 +1,18 @@
 import * as S from "./styles";
 
-export const WeatherCondition = () => (
+interface IProps {
+  temperature: number;
+  descriptionWeather: string;
+}
+
+export const WeatherCondition: React.FC<IProps> = ({
+  temperature,
+  descriptionWeather,
+}) => (
   <S.DegreeWrapper>
     <S.DegreeGroup>
-      <S.Deegree>19</S.Deegree>
-      <S.WeatherName>Rainy</S.WeatherName>
+      <S.Deegree>{temperature}</S.Deegree>
+      <S.WeatherName>{descriptionWeather}</S.WeatherName>
     </S.DegreeGroup>
     <S.Metric>ºC</S.Metric>
   </S.DegreeWrapper>
