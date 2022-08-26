@@ -19,8 +19,12 @@ export const TitleGroup = styled.div`
 
 export const Text = styled.p`
   text-transform: capitalize;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 400;
   color: #303345;
   margin: 0;
+`;
+
+export const CustomText = styled(Text)`
+  text-transform: unset;
 `;

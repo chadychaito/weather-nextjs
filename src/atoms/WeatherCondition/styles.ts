@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 export const DegreeWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.25rem;
 `;
 
 export const DegreeGroup = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: start;
 `;
 
 export const Deegree = styled.h3`
