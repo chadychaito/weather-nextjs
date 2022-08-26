@@ -18,8 +18,6 @@ interface IProps {
 }
 
 export const WeatherInfo: React.FC<IProps> = ({ todayWeather }) => {
-  console.log("?", todayWeather);
-
   const transformIdToWeatherType = (weatherId: number) => {
     switch (true) {
       case weatherId >= 200 && weatherId <= 232:

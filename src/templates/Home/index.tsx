@@ -63,7 +63,6 @@ export const HomeTemplate = () => {
         const transformedData = transformData(data);
         setCurrentCity(transformedData);
         setIsLoading(false);
-        console.log(transformedData);
       }
     },
     [transformData]
