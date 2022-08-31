@@ -90,7 +90,6 @@ export const HomeTemplate = () => {
         onChange={debouncedResults}
         isLoading={isLoading}
       />
-
       {currentCity && (
         <>
           <CityInfo city={currentCity.city} />
@@ -98,10 +97,9 @@ export const HomeTemplate = () => {
           <WeatherDetailsList
             todayWeather={currentCity.list[getCurrentDate()][0]}
           />
-          <TodayWeather />
+          <TodayWeather todayWeather={currentCity.list[getCurrentDate()]} />
         </>
       )}
-
       <p>Ops...Você ainda não fez nenhuma pesquisa.</p>
     </Container>
   );
