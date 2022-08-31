@@ -1,16 +1,41 @@
 import { VerticalCard } from "../../atoms/VerticalCard";
+import { getWeatherTypeById } from "../../utils/getWeatherTypeById";
 
 import * as S from "./styles";
 
-export const TodayTemperatures = () => (
-  <S.WrapperList>
-    <VerticalCard hour="00:00" degree={18} />
-    <VerticalCard hour="03:00" degree={21} active />
-    <VerticalCard hour="06:00" degree={22} />
-    <VerticalCard hour="09:00" degree={24} />
-    <VerticalCard hour="12:00" degree={31} />
-    <VerticalCard hour="15:00" degree={23} />
-    <VerticalCard hour="18:00" degree={19} />
-    <VerticalCard hour="21:00" degree={15} />
-  </S.WrapperList>
-);
+interface IProps {
+  todayWeather: [
+    {
+      main: {
+        temp: number;
+      };
+      dt_txt: string;
+      weather: [
+        {
+          id: number;
+        }
+      ];
+    }
+  ];
+}
+
+export const TodayTemperatures: React.FC<IProps> = ({ todayWeather }) => {
+  const getHourAndMinutes = (utcTxt: string): string => {
+    const date = new Date(utcTxt);
+    return `${date.getHours()}:00`;
+  };
+
+  return (
+    <S.WrapperList>
+      {todayWeather.map((weather, index) => (
+        <VerticalCard
+          active={index === 0}
+          key={weather.dt_txt}
+          hour={getHourAndMinutes(weather.dt_txt)}
+          degree={Math.round(weather.main.temp)}
+          iconType={getWeatherTypeById(weather.weather[0].id)}
+        />
+      ))}
+    </S.WrapperList>
+  );
+};

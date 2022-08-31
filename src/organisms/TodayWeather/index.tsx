@@ -2,9 +2,25 @@ import { Tab } from "../../atoms/Tab";
 import { TodayTemperatures } from "../../molecules/TodayTemperatures";
 import * as S from "./styles";
 
-export const TodayWeather = () => (
+interface IProps {
+  todayWeather: [
+    {
+      main: {
+        temp: number;
+      };
+      dt_txt: string;
+      weather: [
+        {
+          id: number;
+        }
+      ];
+    }
+  ];
+}
+
+export const TodayWeather: React.FC<IProps> = ({ todayWeather }) => (
   <S.Wrapper>
     <Tab />
-    <TodayTemperatures />
+    <TodayTemperatures todayWeather={todayWeather} />
   </S.Wrapper>
 );
