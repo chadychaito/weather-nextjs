@@ -1,5 +1,4 @@
-import styled, { keyframes } from "styled-components";
-import { BiLoader } from "react-icons/bi";
+import styled from "styled-components";
 
 export const InputWrapper = styled.div`
   display: flex;
@@ -25,18 +24,4 @@ export const Input = styled.input`
   outline: none;
   font-size: 12px;
   background: transparent;
-`;
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-export const Loader = styled(BiLoader)`
-  animation: ${rotate} 2s linear infinite;
 `;

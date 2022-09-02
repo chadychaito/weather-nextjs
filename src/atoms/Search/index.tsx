@@ -2,6 +2,7 @@ import * as S from "./styles";
 import { FiSearch } from "react-icons/fi";
 import { ChangeEvent } from "react";
 import { DebouncedFunc } from "lodash";
+import { Loader } from "../Loader";
 
 interface IProps {
   type?: string;
@@ -22,7 +23,7 @@ export const Search: React.FC<IProps> = ({
     <>
       <S.InputWrapper>
         <S.Input type={type} placeholder={placeholder} onChange={onChange} />
-        {isLoading ? <S.Loader /> : <FiSearch />}
+        {isLoading ? <Loader /> : <FiSearch />}
       </S.InputWrapper>
     </>
   );
