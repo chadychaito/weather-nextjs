@@ -9,9 +9,11 @@ import { TodayWeather } from "../../organisms/TodayWeather";
 import { WeatherDetailsList } from "../../organisms/WeatherDetailsList";
 import moment from "moment";
 import "moment-timezone";
+import { Loader } from "../../atoms/Loader";
+
+import * as S from "./styles";
 
 export const HomeTemplate = () => {
-  const [, setSearch] = useState<string>("");
   const [currentCity, setCurrentCity] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -49,24 +51,34 @@ export const HomeTemplate = () => {
     [regionNames]
   );
 
-  //TODO: change type
-  const handleSearch = useCallback(
-    async (event: ChangeEvent<HTMLInputElement>) => {
-      const text = event.target.value;
-      setSearch(text);
-
-      if (text.length) {
-        setIsLoading(true);
-        const { data } = await axios.get(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${event.target.value}&appid=d6d4d803edb973c474d009a6092f9c6b&lang=pt_br&units=metric`
-        );
-        const transformedData = transformData(data);
-        setCurrentCity(transformedData);
-        setIsLoading(false);
-      }
+  const fetchData = useCallback(
+    async (city: string) => {
+      setIsLoading(true);
+      const { data } = await axios.get(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=d6d4d803edb973c474d009a6092f9c6b&lang=pt_br&units=metric`
+      );
+      const transformedData = transformData(data);
+      setCurrentCity(transformedData);
+      setIsLoading(false);
     },
     [transformData]
   );
+
+  const handleSearch = useCallback(
+    async (event: ChangeEvent<HTMLInputElement>) => {
+      const city = event.target.value;
+
+      if (city.length) {
+        fetchData(city);
+      }
+    },
+    [fetchData]
+  );
+
+  const getCurrentDate = () => {
+    const _date = new Date();
+    return _date.toLocaleDateString("pt-BR");
+  };
 
   const debouncedResults = useMemo(() => {
     return debounce(handleSearch, 300);
@@ -78,10 +90,9 @@ export const HomeTemplate = () => {
     };
   });
 
-  const getCurrentDate = () => {
-    const _date = new Date();
-    return _date.toLocaleDateString("pt-BR");
-  };
+  useEffect(() => {
+    fetchData("São paulo");
+  }, []);
 
   return (
     <Container>
@@ -90,7 +101,7 @@ export const HomeTemplate = () => {
         onChange={debouncedResults}
         isLoading={isLoading}
       />
-      {currentCity && (
+      {currentCity ? (
         <>
           <CityInfo city={currentCity.city} />
           <WeatherInfo todayWeather={currentCity.list[getCurrentDate()][0]} />
@@ -99,8 +110,11 @@ export const HomeTemplate = () => {
           />
           <TodayWeather todayWeather={currentCity.list[getCurrentDate()]} />
         </>
+      ) : (
+        <S.LoaderWrapper>
+          <Loader size="56" />
+        </S.LoaderWrapper>
       )}
-      <p>Ops...Você ainda não fez nenhuma pesquisa.</p>
     </Container>
   );
 };
